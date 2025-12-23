@@ -10,7 +10,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/jacoblockett/jamomatic"
+		"url": "git+https://github.com/jacoblockett/jamomatic.git"
 	},
 	"scripts": {
 		"build": "rollup -c",
