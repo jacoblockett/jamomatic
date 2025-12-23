@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import isHangul from "../lib/isHangul.js"
+import isHangul from "../src/lib/isHangul.js"
 
 test(`isHangul() | undefined input string`, () => {
 	assert.deepStrictEqual(isHangul(), false)

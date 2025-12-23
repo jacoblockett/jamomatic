@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import toIotized from "../lib/toIotized.js"
+import toIotized from "../src/lib/toIotized.js"
 
 test(`toIotized(123) | input string is not a string`, () => {
 	assert.throws(() => toIotized(123), TypeError)

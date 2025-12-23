@@ -7,25 +7,25 @@ const toInitialSingleConsonantIndexHash = {
 	3: 4,
 	7: 8,
 	9: 10,
-	12: 13,
+	12: 13
 }
 const toFinalSingleConsonantIndexHash = {
 	1: 2,
-	19: 20,
+	19: 20
 }
 
 /**
  * Converts all consonants into their single consonant form.
  *
  * @example
- * toSingleConsonant("ㄱ") // "ㄱ"
- * toSingleConsonant("ㄲ") // "ㄱ"
- * toSingleConsonant("까") // "가"
+ * toSingle("ㄱ") // "ㄱ"
+ * toSingle("ㄲ") // "ㄱ"
+ * toSingle("까") // "가"
  *
  * @param {string} str The string to convert all consonants to single consonant form
  * @returns {string}
  */
-export default function toSingleConsonant(str) {
+export default function toSingle(str) {
 	if (typeof str !== "string") throw new TypeError("Expected str to be a string")
 
 	const result = []
@@ -41,9 +41,7 @@ export default function toSingleConsonant(str) {
 			const newInitialIndex = toInitialSingleConsonantIndexHash[initialIndex] || initialIndex
 			const newFinalIndex = toFinalSingleConsonantIndexHash[finalIndex] || finalIndex
 
-			result.push(
-				String.fromCodePoint(newInitialIndex * 588 + medialIndex * 28 + newFinalIndex + 0xac00)
-			)
+			result.push(String.fromCodePoint(newInitialIndex * 588 + medialIndex * 28 + newFinalIndex + 0xac00))
 		} else {
 			result.push(toSingleConsonantHash[char] || char)
 		}

@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import endsWith from "../lib/endsWith.js"
+import endsWith from "../src/lib/endsWith.js"
 
 test(`endsWith(123, "test") | input string is not a string`, () => {
 	assert.throws(() => endsWith(123, "test"), TypeError)

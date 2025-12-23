@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import isCompatibility from "../lib/isCompatibility.js"
+import isCompatibility from "../src/lib/isCompatibility.js"
 
 test(`isCompatibility() | undefined input string`, () => {
 	assert.deepStrictEqual(isCompatibility(), false)

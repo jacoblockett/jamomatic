@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import startsWith from "../lib/startsWith.js"
+import startsWith from "../src/lib/startsWith.js"
 
 test(`startsWith(123, "test") | input string is not a string`, () => {
 	assert.throws(() => startsWith(123, "test"), TypeError)

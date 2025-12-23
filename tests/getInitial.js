@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import getInitial from "../lib/getInitial.js"
+import getInitial from "../src/lib/getInitial.js"
 
 test(`getInitial(123) | input string is not a string`, () => {
 	assert.throws(() => getInitial(123), TypeError)

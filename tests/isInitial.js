@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import isInitial from "../lib/isInitial.js"
+import isInitial from "../src/lib/isInitial.js"
 
 test(`isInitial() | undefined input string`, () => {
 	assert.deepStrictEqual(isInitial(), false)

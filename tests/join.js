@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import join from "../lib/join.js"
+import join from "../src/lib/join.js"
 
 test(`join(123) | input string is not a string`, () => {
 	assert.throws(() => join(123), TypeError)

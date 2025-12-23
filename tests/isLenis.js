@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import isLenis from "../lib/isLenis.js"
+import isLenis from "../src/lib/isLenis.js"
 
 test(`isLenis() | undefined input string`, () => {
 	assert.deepStrictEqual(isLenis(), false)

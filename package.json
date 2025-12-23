@@ -1,14 +1,19 @@
 {
-	"name": "hangul",
+	"name": "jamomatic",
 	"version": "0.3.0",
 	"description": "A library dedicated to working with the Korean alphabet, Hangul.",
-	"main": "index.js",
+	"main": "dist/index.cjs",
 	"type": "module",
+	"exports": {
+		"import": "./dist/index.mjs",
+		"require": "./dist/index.cjs"
+	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/jacoblockett/hangul"
+		"url": "https://github.com/jacoblockett/jamomatic"
 	},
 	"scripts": {
+		"build": "rollup -c",
 		"test": "node --test tests/*.js",
 		"dev": "clear && nodemon --quiet dev/index.js"
 	},
@@ -17,10 +22,20 @@
 		"korean",
 		"strings",
 		"utility",
-		"utilities"
+		"utilities",
+		"jamo"
 	],
+	"files": [
+		"dist/",
+		"LICENSE",
+		"README.md"
+	],
+	"license": "MIT",
 	"author": "Jacob Lockett",
 	"devDependencies": {
-		"benchmark": "^2.1.4"
+		"@rollup/plugin-commonjs": "^29.0.0",
+		"@rollup/plugin-node-resolve": "^16.0.3",
+		"benchmark": "^2.1.4",
+		"rollup": "^4.54.0"
 	}
 }

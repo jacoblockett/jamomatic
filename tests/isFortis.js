@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import isFortis from "../lib/isFortis.js"
+import isFortis from "../src/lib/isFortis.js"
 
 test(`isFortis() | undefined input string`, () => {
 	assert.deepStrictEqual(isFortis(), false)

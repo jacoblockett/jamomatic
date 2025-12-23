@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import isFinal from "../lib/isFinal.js"
+import isFinal from "../src/lib/isFinal.js"
 
 test(`isFinal() | undefined input string`, () => {
 	assert.deepStrictEqual(isFinal(), false)

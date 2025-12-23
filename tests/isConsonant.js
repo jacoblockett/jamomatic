@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import isConsonant from "../lib/isConsonant.js"
+import isConsonant from "../src/lib/isConsonant.js"
 
 test(`isConsonant() | undefined input string`, () => {
 	assert.deepStrictEqual(isConsonant(), false)

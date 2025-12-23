@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import isMedial from "../lib/isMedial.js"
+import isMedial from "../src/lib/isMedial.js"
 
 test(`isMedial() | undefined input string`, () => {
 	assert.deepStrictEqual(isMedial(), false)

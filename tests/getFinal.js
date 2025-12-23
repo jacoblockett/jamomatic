@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import getFinal from "../lib/getFinal.js"
+import getFinal from "../src/lib/getFinal.js"
 
 test(`getFinal(123) | input string is not a string`, () => {
 	assert.throws(() => getFinal(123), TypeError)

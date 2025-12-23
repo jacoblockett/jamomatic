@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import isDiphthong from "../lib/isDiphthong.js"
+import isDiphthong from "../src/lib/isDiphthong.js"
 
 test(`isDiphthong() | undefined input string`, () => {
 	assert.deepStrictEqual(isDiphthong(), false)

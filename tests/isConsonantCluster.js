@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import isConsonantCluster from "../lib/isConsonantCluster.js"
+import isConsonantCluster from "../src/lib/isConsonantCluster.js"
 
 test(`isConsonantCluster() | undefined input string`, () => {
 	assert.deepStrictEqual(isConsonantCluster(), false)

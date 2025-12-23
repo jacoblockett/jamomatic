@@ -12,7 +12,7 @@ import isFinal from "./lib/isFinal.js"
 import isFortis from "./lib/isFortis.js"
 import isHangul from "./lib/isHangul.js"
 import isInitial from "./lib/isInitial.js"
-import isIotizedVowel from "./lib/isIotizedVowel.js"
+import isIotized from "./lib/isIotized.js"
 import isLenis from "./lib/isLenis.js"
 import isMedial from "./lib/isMedial.js"
 import isNonCompatibility from "./lib/isNonCompatibility.js"
@@ -23,14 +23,14 @@ import split from "./lib/split.js"
 import startsWith from "./lib/startsWith.js"
 import toAspirated from "./lib/toAspirated.js"
 import toCompatibility from "./lib/toCompatibility.js"
-import toDoubleConsonant from "./lib/toDoubleConsonant.js"
+import toDouble from "./lib/toDouble.js"
 import toFinal from "./lib/toFinal.js"
 import toFortis from "./lib/toFortis.js"
 import toInitial from "./lib/toInitial.js"
 import toIotized from "./lib/toIotized.js"
 import toLenis from "./lib/toLenis.js"
 import toMedial from "./lib/toMedial.js"
-import toSingleConsonant from "./lib/toSingleConsonant.js"
+import toSingle from "./lib/toSingle.js"
 
 export default {
 	/**
@@ -110,7 +110,7 @@ export default {
 	/**
 	 * Checks if the given value is an iotized vowel, one that begins with the /j/ phoneme.
 	 */
-	isIotizedVowel,
+	isIotized,
 	/**
 	 * Checks if the given value is a lenis (soft) consonant.
 	 */
@@ -155,7 +155,7 @@ export default {
 	/**
 	 * Converts all consonants into their double consonant form.
 	 */
-	toDoubleConsonant,
+	toDouble,
 	/**
 	 * Converts all consonants into their final form.
 	 */
@@ -183,5 +183,5 @@ export default {
 	/**
 	 * Converts all consonants into their single consonant form.
 	 */
-	toSingleConsonant,
+	toSingle
 }

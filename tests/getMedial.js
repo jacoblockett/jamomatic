@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import getMedial from "../lib/getMedial.js"
+import getMedial from "../src/lib/getMedial.js"
 
 test(`getMedial(123) | input string is not a string`, () => {
 	assert.throws(() => getMedial(123), TypeError)

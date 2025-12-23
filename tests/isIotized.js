@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import isIotized from "../lib/isIotized.js"
+import isIotized from "../src/lib/isIotized.js"
 
 test(`isIotized() | undefined input string`, () => {
 	assert.deepStrictEqual(isIotized(), false)

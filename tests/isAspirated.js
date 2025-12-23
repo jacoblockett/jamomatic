@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import isAspirated from "../lib/isAspirated.js"
+import isAspirated from "../src/lib/isAspirated.js"
 
 test(`isAspirated() | undefined input string`, () => {
 	assert.deepStrictEqual(isAspirated(), false)

@@ -1,24 +1,15 @@
-# <p align="center">Hangul</p>
+# <p align="center">Jamomatic</p>
 
-*<p align="center">A library dedicated to working with the Korean alphabet, Hangul.</p>*
-
+_<p align="center">A library dedicated to working with the Korean alphabet, Hangul.</p>_
 
 > ⚠️ This library is still under development and breaking changes may be many until a v1.0.0 version is released. Use with caution.
 
-> ⚠️ This package uses ESM and has no plans to offer a CJS counterpart. Be sure your environment is configured to use ESM.
+> 🥲 Unfortunately, after many attempts, the package name `hangul`, despite being squatted on, is not being released by NPM. This project is now named `jamomatic`.
 
 ## Installation
 
-> ⚠️ Until a proper NPM package name is selected, the only way to install this package is to clone the repo directly, or trust `npm` et. al. to install it using the github repo link.
-
 ```bash
-git clone "https://github.com/jacoblockett/hangul"
-```
-
-or
-
-```bash
-npm install "https://github.com/jacoblockett/hangul"
+npm install jamomatic
 ```
 
 ## Usage
@@ -52,16 +43,17 @@ This package comes with many useful functions, and more to come!
 - [startsWith](#startswith-)
 - [toAspirated](#toaspirated-)
 - [toCompatibility](#tocompatibility-)
-- [toDoubleConsonant](#todoubleconsonant-)
+- [toDouble](#toDouble-)
 - [toFinal](#tofinal-)
 - [toFortis](#tofortis-)
 - [toInitial](#toinitial-)
 - [toIotized](#toiotized-)
 - [toLenis](#tolenis-)
 - [toMedial](#tomedial-)
-- [toSingleConsonant](#tosingleconsonant-)
+- [toSingle](#toSingle-)
 
 ---
+
 ### endsWith [🔝](#usage)
 
 Checks if the given search string exists at the end of the given operation string.
@@ -69,16 +61,19 @@ Checks if the given search string exists at the end of the given operation strin
 #### Signature
 
 ```typescript
-function endsWith(str: string, options?: {
-    decouple: boolean,
-}): boolean
+function endsWith(
+	str: string,
+	options?: {
+		decouple: boolean
+	}
+): boolean
 ```
 
 #### Options
 
-Name|Default Value|Description
----|---|---
-decouple|true|Decouples the composite letters before performing the search
+| Name     | Default Value | Description                                                  |
+| -------- | ------------- | ------------------------------------------------------------ |
+| decouple | true          | Decouples the composite letters before performing the search |
 
 #### Example
 
@@ -91,6 +86,7 @@ endsWith("늙다", "ㄱ다", { decouple: false }) // false
 ```
 
 ---
+
 ### getFinal [🔝](#usage)
 
 Extracts the final letter from the given Hangul syllable block.
@@ -98,16 +94,19 @@ Extracts the final letter from the given Hangul syllable block.
 #### Signature
 
 ```typescript
-function getFinal(str: string, options?: {
-    compatibility: boolean,
-}): string
+function getFinal(
+	str: string,
+	options?: {
+		compatibility: boolean
+	}
+): string
 ```
 
 #### Options
 
-Name|Default Value|Description
----|---|---
-compatibility|true|Converts the final letter into its compatibility form
+| Name          | Default Value | Description                                           |
+| ------------- | ------------- | ----------------------------------------------------- |
+| compatibility | true          | Converts the final letter into its compatibility form |
 
 #### Example
 
@@ -118,6 +117,7 @@ getFinal("하") // ""
 ```
 
 ---
+
 ### getInitial [🔝](#usage)
 
 Extracts the initial letter from the given Hangul syllable block.
@@ -125,16 +125,19 @@ Extracts the initial letter from the given Hangul syllable block.
 #### Signature
 
 ```typescript
-function getInitial(str: string, options?: {
-    compatibility: boolean,
-}): string
+function getInitial(
+	str: string,
+	options?: {
+		compatibility: boolean
+	}
+): string
 ```
 
 #### Options
 
-Name|Default Value|Description
----|---|---
-compatibility|true|Converts the initial letter into its compatibility form
+| Name          | Default Value | Description                                             |
+| ------------- | ------------- | ------------------------------------------------------- |
+| compatibility | true          | Converts the initial letter into its compatibility form |
 
 #### Example
 
@@ -144,6 +147,7 @@ getInitial("한", { compatibility: false }) // "ᄒ"
 ```
 
 ---
+
 ### getMedial [🔝](#usage)
 
 Extracts the medial letter from the given Hangul syllable block.
@@ -151,16 +155,19 @@ Extracts the medial letter from the given Hangul syllable block.
 #### Signature
 
 ```typescript
-function getMedial(str: string, options?: {
-    compatibility: boolean,
-}): string
+function getMedial(
+	str: string,
+	options?: {
+		compatibility: boolean
+	}
+): string
 ```
 
 #### Options
 
-Name|Default Value|Description
----|---|---
-compatibility|true|Converts the medial letter into its compatibility form
+| Name          | Default Value | Description                                            |
+| ------------- | ------------- | ------------------------------------------------------ |
+| compatibility | true          | Converts the medial letter into its compatibility form |
 
 #### Example
 
@@ -170,6 +177,7 @@ getMedial("한", { compatibility: false }) // "ᅡ"
 ```
 
 ---
+
 ### isAspirated [🔝](#usage)
 
 Checks if the given value is an aspirated consonant.
@@ -188,6 +196,7 @@ isAspirated("ㄱ") // false
 ```
 
 ---
+
 ### isCompatibility [🔝](#usage)
 
 Checks if the given value is a compatibility letter.
@@ -206,9 +215,10 @@ isCompatibility("ᄀ") // false
 ```
 
 ---
+
 ### isCompositeConsonant [🔝](#usage)
 
-➡️ ***[isConsonantCluster](#isconsonantcluster-)***
+➡️ **_[isConsonantCluster](#isconsonantcluster-)_**
 
 Checks if the given value is a consonant cluster, a cluster of two consonants as one letter.
 
@@ -226,9 +236,10 @@ isCompositeConsonant("ㄱ") // false
 ```
 
 ---
+
 ### isCompositeVowel [🔝](#usage)
 
-➡️ ***[isDiphthong](#isdiphthong-)***
+➡️ **_[isDiphthong](#isdiphthong-)_**
 
 Checks if the given value is a diphthong, a cluster of two vowels as one letter.
 
@@ -246,6 +257,7 @@ isCompositeVowel("ㅏ") // false
 ```
 
 ---
+
 ### isConsonant [🔝](#usage)
 
 Checks if the given value is consonant.
@@ -264,9 +276,10 @@ isConsonant("ㅏ") // false
 ```
 
 ---
+
 ### isConsonantCluster [🔝](#usage)
 
-➡️ ***[isCompositeConsonant](#iscompositeconsonant-)***
+➡️ **_[isCompositeConsonant](#iscompositeconsonant-)_**
 
 Checks if the given value is a consonant cluster, a cluster of two consonants as one letter.
 
@@ -284,9 +297,10 @@ isConsonantCluster("ㄱ") // false
 ```
 
 ---
+
 ### isDiphthong [🔝](#usage)
 
-➡️ ***[isCompositeVowel](#iscompositevowel-)***
+➡️ **_[isCompositeVowel](#iscompositevowel-)_**
 
 Checks if the given value is a diphthong, a cluster of two vowels as one letter.
 
@@ -304,6 +318,7 @@ isDiphthong("ㅏ") // false
 ```
 
 ---
+
 ### isDoubleConsonant [🔝](#usage)
 
 Checks if the given value is a double consonant, a cluster of two identical consonants as one letter.
@@ -322,6 +337,7 @@ isDoubleConsonant("ㄳ") // false
 ```
 
 ---
+
 ### isFinal [🔝](#usage)
 
 Checks if the given value is a non-compatibility, final consonant.
@@ -340,6 +356,7 @@ isFinal("ㄱ") // false
 ```
 
 ---
+
 ### isFortis [🔝](#usage)
 
 Checks if the given value is a fortis (tensed) consonant.
@@ -358,6 +375,7 @@ isFortis("ㄱ") // false
 ```
 
 ---
+
 ### isHangul [🔝](#usage)
 
 Checks if the given value is some sort of Hangul characters, either a loose letter or a syllable block. By default, symbols and numbers are allowed to pass. Use the `options.strict` boolean to disallow this behavior.
@@ -365,16 +383,19 @@ Checks if the given value is some sort of Hangul characters, either a loose lett
 #### Signature
 
 ```typescript
-function isHangul(value: unknown, options?: {
-    strict: boolean,
-}): boolean
+function isHangul(
+	value: unknown,
+	options?: {
+		strict: boolean
+	}
+): boolean
 ```
 
 #### Options
 
-Name|Default Value|Description
----|---|---
-strict|false|Disallows symbols and numbers from being considered valid Hangul characters
+| Name   | Default Value | Description                                                                 |
+| ------ | ------------- | --------------------------------------------------------------------------- |
+| strict | false         | Disallows symbols and numbers from being considered valid Hangul characters |
 
 #### Example
 
@@ -384,6 +405,7 @@ isHangul("안녕하세요!", { strict: true }) // false
 ```
 
 ---
+
 ### isInitial [🔝](#usage)
 
 Checks if the given value is a non-compatibility, initial consonant.
@@ -402,6 +424,7 @@ isInitial("ㄱ") // false
 ```
 
 ---
+
 ### isIotized [🔝](#usage)
 
 Checks if the given value is an iotized vowel, one that begins with the /j/ phoneme.
@@ -420,6 +443,7 @@ isIotized("ㅏ") // false
 ```
 
 ---
+
 ### isLenis [🔝](#usage)
 
 Checks if the given value is a lenis (soft) consonant.
@@ -438,6 +462,7 @@ isLenis("ㄲ") // false
 ```
 
 ---
+
 ### isMedial [🔝](#usage)
 
 Checks if the given value is a non-compatibility, medial vowel.
@@ -456,6 +481,7 @@ isMedial("ㅏ") // false
 ```
 
 ---
+
 ### isNonCompatibility [🔝](#usage)
 
 Checks if the given value is a non-compatibility letter.
@@ -474,6 +500,7 @@ isNonCompatibility("ㅏ") // false
 ```
 
 ---
+
 ### isSyllable [🔝](#usage)
 
 Checks if the given value is a Hangul syllable block.
@@ -492,6 +519,7 @@ isSyllable("ㅎ") // false
 ```
 
 ---
+
 ### isVowel [🔝](#usage)
 
 Checks if the given value is a vowel.
@@ -510,6 +538,7 @@ isVowel("ㄱ") // false
 ```
 
 ---
+
 ### join [🔝](#usage)
 
 Joins the given string in a way that would resemble dubeolsik (두벌식) typing. Converts all non-compatibility letters to compatibility letters during this process.
@@ -519,16 +548,19 @@ Joins the given string in a way that would resemble dubeolsik (두벌식) typing
 #### Signature
 
 ```typescript
-function join(str: string, options?: {
-    split: boolean,
-}): string
+function join(
+	str: string,
+	options?: {
+		split: boolean
+	}
+): string
 ```
 
 #### Options
 
-Name|Default Value|Description
----|---|---
-split|true|Splits the string before parsing
+| Name  | Default Value | Description                      |
+| ----- | ------------- | -------------------------------- |
+| split | true          | Splits the string before parsing |
 
 #### Example
 
@@ -539,6 +571,7 @@ join("ㄱ가", { split: false }) // ㄱ가
 ```
 
 ---
+
 ### split [🔝](#usage)
 
 Splits the given string, deconstructing all of the hangul syllables into their constituent letters.
@@ -546,20 +579,23 @@ Splits the given string, deconstructing all of the hangul syllables into their c
 #### Signature
 
 ```typescript
-function split(str: string, options?: {
-    group: boolean,
-    decouple: boolean,
-    compatibility: boolean,
-}): string[]|string[][]
+function split(
+	str: string,
+	options?: {
+		group: boolean
+		decouple: boolean
+		compatibility: boolean
+	}
+): string[] | string[][]
 ```
 
 #### Options
 
-Name|Default Value|Description
----|---|---
-group|false|Groups each syllable/grapheme into its own array
-decouple|false|Decomposes composite letters into their constituent letters
-compatibility|true|Converts all letters from non-compatibility letters to compatibility letters
+| Name          | Default Value | Description                                                                  |
+| ------------- | ------------- | ---------------------------------------------------------------------------- |
+| group         | false         | Groups each syllable/grapheme into its own array                             |
+| decouple      | false         | Decomposes composite letters into their constituent letters                  |
+| compatibility | true          | Converts all letters from non-compatibility letters to compatibility letters |
 
 #### Example
 
@@ -570,6 +606,7 @@ split("했다", { decouple: true, compatibility: false }) // ["ᄒ", "ᅢ", "ᆺ
 ```
 
 ---
+
 ### startsWith [🔝](#usage)
 
 Checks if the given search string exists at the beginning of the given operation string.
@@ -577,16 +614,19 @@ Checks if the given search string exists at the beginning of the given operation
 #### Signature
 
 ```typescript
-function startsWith(str: string, options?: {
-    decouple: boolean,
-}): boolean
+function startsWith(
+	str: string,
+	options?: {
+		decouple: boolean
+	}
+): boolean
 ```
 
 #### Options
 
-Name|Default Value|Description
----|---|---
-decouple|true|Decouples the composite letters before performing the search
+| Name     | Default Value | Description                                                  |
+| -------- | ------------- | ------------------------------------------------------------ |
+| decouple | true          | Decouples the composite letters before performing the search |
 
 #### Example
 
@@ -599,6 +639,7 @@ startsWith("늙다", "늘", { decouple: false }) // false
 ```
 
 ---
+
 ### toAspirated [🔝](#usage)
 
 Converts all consonants into their aspirated form.
@@ -618,6 +659,7 @@ toAspirated("한국") // "한쿸"
 ```
 
 ---
+
 ### toCompatibility [🔝](#usage)
 
 Converts all letters into their compatibility form.
@@ -636,25 +678,27 @@ toCompatibility("ᆩ") // "ㄲ"
 ```
 
 ---
-### toDoubleConsonant [🔝](#usage)
+
+### toDouble [🔝](#usage)
 
 Converts all consonants into their double consonant form.
 
 #### Signature
 
 ```typescript
-function toDoubleConsonant(str: string): string
+function toDouble(str: string): string
 ```
 
 #### Example
 
 ```javascript
-toDoubleConsonant("ㄱ") // "ㄱ"
-toDoubleConsonant("ㄲ") // "ㄱ"
-toDoubleConsonant("가") // "까"
+toDouble("ㄱ") // "ㄱ"
+toDouble("ㄲ") // "ㄱ"
+toDouble("가") // "까"
 ```
 
 ---
+
 ### toFinal [🔝](#usage)
 
 Converts all consonants into their final form.
@@ -673,6 +717,7 @@ toFinal("ㄲ") // "ᆩ"
 ```
 
 ---
+
 ### toFortis [🔝](#usage)
 
 Converts all consonants into their fortis (tensed) form.
@@ -692,6 +737,7 @@ toFortis("한국") // "한꾺"
 ```
 
 ---
+
 ### toInitial [🔝](#usage)
 
 Converts all consonants into their initial form.
@@ -710,6 +756,7 @@ toInitial("ㄲ") // "ᄁ"
 ```
 
 ---
+
 ### toIotized [🔝](#usage)
 
 Converts all vowels that can be iotized within the given string.
@@ -726,8 +773,11 @@ function toIotized(str: string): string
 toIotized("ㅏ") // "ㅑ"
 toIotized("한국") // "햔귝"
 ```
+
 ---
+
 ---
+
 ### toLenis [🔝](#usage)
 
 Converts all consonants into their lenis (soft) form.
@@ -747,6 +797,7 @@ toLenis("한국") // "한쿸"
 ```
 
 ---
+
 ### toMedial [🔝](#usage)
 
 Converts all vowels into their medial form.
@@ -765,23 +816,25 @@ toMedial("ㅔ") // "ᅦ"
 ```
 
 ---
-### toSingleConsonant [🔝](#usage)
+
+### toSingle [🔝](#usage)
 
 Converts all consonants into their single consonant form.
 
 #### Signature
 
 ```typescript
-function toSingleConsonant(str: string): string
+function toSingle(str: string): string
 ```
 
 #### Example
 
 ```javascript
-toSingleConsonant("ㄱ") // "ㄱ"
-toSingleConsonant("ㄲ") // "ㄱ"
-toSingleConsonant("까") // "가"
+toSingle("ㄱ") // "ㄱ"
+toSingle("ㄲ") // "ㄱ"
+toSingle("까") // "가"
 ```
 
 ---
-***<p align="center">©️ 2024 Jacob Lockett</p>***
+
+**_<p align="center">©️ 2024 Jacob Lockett</p>_**

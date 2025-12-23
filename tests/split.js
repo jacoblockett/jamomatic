@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert"
-import split from "../lib/split.js"
+import split from "../src/lib/split.js"
 
 test(`split(123) | input string is not a string`, () => {
 	assert.throws(() => split(123), TypeError)
@@ -31,19 +31,12 @@ test(`split("했다", { compatibility: false }) | splits hangul blocks with batc
 })
 
 test(`split("했다", { decouple: true, compatibility: false }) | splits hangul blocks with batchim, decoupling composite letters and not converting to compatibility letters`, () => {
-	assert.deepStrictEqual(split("했다", { decouple: true, compatibility: false }), [
-		"ᄒ",
-		"ᅢ",
-		"ᆺ",
-		"ᆺ",
-		"ᄃ",
-		"ᅡ",
-	])
+	assert.deepStrictEqual(split("했다", { decouple: true, compatibility: false }), ["ᄒ", "ᅢ", "ᆺ", "ᆺ", "ᄃ", "ᅡ"])
 })
 
 test(`split("하다", { group: true }) | splits simple hangul blocks into their own grouped array`, () => {
 	assert.deepStrictEqual(split("하다", { group: true }), [
 		["ㅎ", "ㅏ"],
-		["ㄷ", "ㅏ"],
+		["ㄷ", "ㅏ"]
 	])
 })
