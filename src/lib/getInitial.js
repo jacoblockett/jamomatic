@@ -1,4 +1,4 @@
-import { initialCompatLetters, initialLetters } from "../utils/chars.js"
+import { initialCompatLetters, initialLetters, initialSplitCompatLetters, initialSplitLetters } from "../utils/chars.js"
 import isSyllable from "./isSyllable.js"
 
 /**
@@ -11,6 +11,7 @@ import isSyllable from "./isSyllable.js"
  * @param {string} syllable The syllable block to extract the initial letter from
  * @param {object} [options]
  * @param {boolean} [options.compatibility] Converts the initial letter into its compatibility form (default: `true`)
+ * @param {boolean} [options.decouple] Decomposes composite letters into their constituent letters (default: `false`)
  * @returns {string}
  */
 export default function getInitial(syllable, options = {}) {
@@ -18,6 +19,7 @@ export default function getInitial(syllable, options = {}) {
 
 	if (!options || options.constructor !== Object) options = {}
 	if (typeof options.compatibility !== "boolean") options.compatibility = true
+	if (typeof options.decouple !== "boolean") options.decouple = false
 
 	if (!isSyllable(syllable)) return ""
 
@@ -25,8 +27,16 @@ export default function getInitial(syllable, options = {}) {
 	const initialIndex = ~~((charCode - 0xac00) / 588)
 
 	if (options.compatibility) {
+		if (options.decouple) {
+			return initialSplitCompatLetters[initialIndex]
+		}
+
 		return initialCompatLetters[initialIndex]
 	} else {
+		if (options.decouple) {
+			return initialSplitLetters[initialIndex]
+		}
+
 		return initialLetters[initialIndex]
 	}
 }

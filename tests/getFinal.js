@@ -33,3 +33,11 @@ test(`getFinal("한글") | non-syllable`, () => {
 test(`getFinal("한", { compatibility: false }) | with batchim and not converting to compatibility letters`, () => {
 	assert.deepStrictEqual(getFinal("한", { compatibility: false }), "ᆫ")
 })
+
+test(`getFinal("밝", { decouple: true }) | decoupled compatibility letters`, () => {
+	assert.deepStrictEqual(getFinal("밝", { decouple: true }), ["ㄹ", "ㄱ"])
+})
+
+test(`getFinal("밝", { compatibility: false, decouple: true }) | decoupled non-compatibility letters`, () => {
+	assert.deepStrictEqual(getFinal("밝", { compatibility: false, decouple: true }), ["ᆯ", "ᆨ"])
+})

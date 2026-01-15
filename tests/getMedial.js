@@ -33,3 +33,11 @@ test(`getMedial("한글") | non-syllable`, () => {
 test(`getMedial("한", { compatibility: false }) | with batchim and not converting to compatibility letters`, () => {
 	assert.deepStrictEqual(getMedial("한", { compatibility: false }), "ᅡ")
 })
+
+test(`getMedial("환", { decouple: true }) | decoupled compatibility letters`, () => {
+	assert.deepStrictEqual(getMedial("환", { decouple: true }), ["ㅗ", "ㅏ"])
+})
+
+test(`getMedial("환", { compatibility: false, decouple: true }) | decoupled non-compatibility letters`, () => {
+	assert.deepStrictEqual(getMedial("환", { compatibility: false, decouple: true }), ["ᅩ", "ᅡ"])
+})

@@ -33,3 +33,11 @@ test(`getInitial("한글") | non-syllable`, () => {
 test(`getInitial("한", { compatibility: false }) | with batchim and not converting to compatibility letters`, () => {
 	assert.deepStrictEqual(getInitial("한", { compatibility: false }), "ᄒ")
 })
+
+test(`getInitial("뼈", { decouple: true }) | decoupled compatibility letters`, () => {
+	assert.deepStrictEqual(getInitial("뼈", { decouple: true }), ["ㅂ", "ㅂ"])
+})
+
+test(`getInitial("뼈", { compatibility: false, decouple: true }) | decoupled non-compatibility letters`, () => {
+	assert.deepStrictEqual(getInitial("뼈", { compatibility: false, decouple: true }), ["ᄇ", "ᄇ"])
+})
