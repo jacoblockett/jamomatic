@@ -8,7 +8,7 @@ import {
 	compatToFinalMap,
 	compatToCompositeMap,
 	compositeLetters,
-	vowelLetters,
+	vowelLetters
 } from "../utils/chars.js"
 import hash from "../utils/hash.js"
 import isHangul from "./isHangul.js"
@@ -30,28 +30,28 @@ const compatToCompositeHash = hash(compatToCompositeMap, { conversionMap: true }
  * Joins the given string in a way that would resemble dubeolsik (두벌식) typing. Converts all
  * non-compatibility letters to compatibility letters during this process.
  *
- * `options.split` is an important consideration as it could drastically change the output. When
- * `true`, this function will deconstruct all valid syllable blocks, then evaluate each individual
- * letter as if they were typed separately. When `false`, however, each syllable block will be
- * parsed as-is. See the examples for an illustration of what this actually looks like.
+ * @note Enabling `options.noPreprocess` could drastically change the output. `join` will typically
+ * attempt to deconstruct everything in the string to start fresh, then join all letters together.
+ * With `options.noPreprocess` set to `true`, `join` will skip this step and join everything in
+ * place. See the examples for a practical application.
  *
  * @example
  * join("ㅎㅏㄴ") // => 한
  * join("ㄱ가") // => 까
- * join("ㄱ가", { split: false }) // => ㄱ가
+ * join("ㄱ가", { noPreprocess: true }) // => ㄱ가
  *
  * @param {string} str The string to join
  * @param {object} [options]
- * @param {boolean} [options.split] Splits the string before parsing (default: `true`)
+ * @param {boolean} [options.noPreprocess] disable preprocessing the string before parsing
  * @returns {string}
  */
 export default function join(str, options = {}) {
 	if (typeof str !== "string") throw new TypeError(`Expected str to be a string`)
 
 	if (!options || options.constructor !== Object) options = {}
-	if (typeof options.split !== "boolean") options.split = true
+	if (typeof options.noPreprocess !== "boolean") options.noPreprocess = false
 
-	const characters = options.split ? split(str) : [...str.normalize()]
+	const characters = options.noPreprocess ? [...str.normalize()] : split(str)
 	const result = []
 	let block = []
 
@@ -63,9 +63,7 @@ export default function join(str, options = {}) {
 			const initialIndex = initialHash[compatToInitialHash[initial]]
 			const medialIndex = medialHash[compatToMedialHash[medial]]
 			const finalIndex = finalHash[compatToFinalHash[final]] || 0
-			const formedBlock = String.fromCodePoint(
-				initialIndex * 588 + medialIndex * 28 + finalIndex + 0xac00
-			)
+			const formedBlock = String.fromCodePoint(initialIndex * 588 + medialIndex * 28 + finalIndex + 0xac00)
 
 			result.push(formedBlock)
 			block = []
@@ -84,8 +82,8 @@ export default function join(str, options = {}) {
 			// and reset
 			pushBlock()
 			result.push(char)
-		} else if (!options.split && isSyllable(char)) {
-			// If the current char is a syllable block (in non-split mode),
+		} else if (options.noPreprocess && isSyllable(char)) {
+			// If the current char is a syllable block (in noPreprocess mode),
 			// process the block, push the char, and reset
 			pushBlock()
 			result.push(char)

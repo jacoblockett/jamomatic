@@ -22,8 +22,12 @@ test(`join("ㄱ가") | join with loose letters and blocks mixed together`, () =>
 	assert.deepStrictEqual(join("ㄱ가"), "까")
 })
 
-test(`join("ㄱ가", { split: false }) | join with no preprocessing (splitting) beforehand`, () => {
-	assert.deepStrictEqual(join("ㄱ가", { split: false }), "ㄱ가")
+test(`join("ㄱ가", { noPreprocess: true }) | join with no preprocessing beforehand`, () => {
+	assert.deepStrictEqual(join("ㄱ가", { noPreprocess: true }), "ㄱ가")
+})
+
+test(`join("ㄱㅓㄷ다", { noPreprocess: true }) | join with no preprocessing beforehand, `, () => {
+	assert.deepStrictEqual(join("ㄱㅓㄷ다", { noPreprocess: true }), "걷다")
 })
 
 test(`join("ㅅㅅㅏ") | join with loose double letters`, () => {
