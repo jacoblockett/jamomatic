@@ -2,7 +2,7 @@ import { finalCompatLetters, finalLetters } from "../utils/chars.js"
 import isSyllable from "./isSyllable.js"
 
 /**
- * Extracts the final letter from the given Hangul syllable block.
+ * Extracts the final consonant letter from the given Hangul syllable block.
  *
  * @example
  * getFinal("한") // "ㄴ"

@@ -2,7 +2,7 @@ import { initialCompatLetters, initialLetters } from "../utils/chars.js"
 import isSyllable from "./isSyllable.js"
 
 /**
- * Extracts the initial letter from the given Hangul syllable block.
+ * Extracts the initial consonant letter from the given Hangul syllable block.
  *
  * @example
  * getInitial("한") // "ㅎ"

@@ -2,7 +2,7 @@ import { medialCompatLetters, medialLetters } from "../utils/chars.js"
 import isSyllable from "./isSyllable.js"
 
 /**
- * Extracts the medial letter from the given Hangul syllable block.
+ * Extracts the medial vowel letter from the given Hangul syllable block.
  *
  * @example
  * getMedial("한") // "ㅏ"
